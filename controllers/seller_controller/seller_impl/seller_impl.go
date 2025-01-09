@@ -44,3 +44,13 @@ func (s *SellerControllerImpl) CreateRates(c *gin.Context, req models.CreateMatc
 	return match, nil
 
 }
+
+func (s *SellerControllerImpl) UpdateRate(c *gin.Context, req models.UpdateMatch) (models.Matches, error) {
+	id, err := utils.GetContextId(c)
+	utils.HandleError(err)
+
+	req.UpdatedBy = id
+
+	return s.Dao.UpdateRate(req)
+
+}

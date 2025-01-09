@@ -12,6 +12,7 @@ type ValidationService interface {
 	ValidateReq(c *gin.Context, request interface{}) []string
 	ValidateEmailPassword(fl validator.FieldLevel) bool
 	ValidateMatches(match *models.CreateMatch) error
+	ValidateUpdateMatch(m *models.UpdateMatch) error
 }
 
 func NewValidationService() ValidationService {

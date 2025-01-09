@@ -55,3 +55,10 @@ func (vs *ValidationServiceImpl) ValidateMatches(match *models.CreateMatch) erro
 
 	return nil
 }
+
+func (vs *ValidationServiceImpl) ValidateUpdateMatch(m *models.UpdateMatch) error {
+	if m.ID <= 0 {
+		return errors.New("ID must be greater than 0")
+	}
+	return nil
+}
