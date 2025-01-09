@@ -1,8 +1,11 @@
 package validation_impl
 
 import (
+	"arabian-snooker/models"
+	"errors"
 	"fmt"
 	"regexp"
+	"strings"
 
 	"github.com/gin-gonic/gin"
 	"github.com/go-playground/validator"
@@ -38,4 +41,17 @@ func (vs *ValidationServiceImpl) ValidateReq(c *gin.Context, request interface{}
 		return errorMsgs
 	}
 	return errorMsgs
+}
+
+func (vs *ValidationServiceImpl) ValidateMatches(match *models.CreateMatch) error {
+
+	if match.MatchName != strings.ToLower(match.MatchName) {
+		return errors.New("match name must be in lowercase")
+	}
+
+	if match.PerMatchPrice < 0 {
+		return errors.New("per match price cannot be negative")
+	}
+
+	return nil
 }

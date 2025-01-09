@@ -18,6 +18,7 @@ func (r *Router) SetupRoutes() {
 	{
 		sellerGroup.Use(middleware.Auth([]string{"seller", "admin"}))
 		sellerGroup.Use(middleware.StatusCheck(r.Engine.HandleContext))
+		sellerGroup.POST("/match-rates", r.CreateRates)
 
 	}
 

@@ -13,6 +13,7 @@ type Dao interface {
 	CheckUserExists(req string) (bool, error)
 	GetUser(req *models.LoginReq) (models.Users, error)
 	IsActive(c *gin.Context, seller_id int64) (bool, error)
+	CreateRates(req models.CreateMatch) (models.Matches, error)
 
 	// Corrected and Complete CRUD operations for all models
 

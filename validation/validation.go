@@ -1,6 +1,7 @@
 package Validation
 
 import (
+	"arabian-snooker/models"
 	"arabian-snooker/validation/validation_impl"
 
 	"github.com/gin-gonic/gin"
@@ -10,6 +11,7 @@ import (
 type ValidationService interface {
 	ValidateReq(c *gin.Context, request interface{}) []string
 	ValidateEmailPassword(fl validator.FieldLevel) bool
+	ValidateMatches(match *models.CreateMatch) error
 }
 
 func NewValidationService() ValidationService {

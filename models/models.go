@@ -35,6 +35,20 @@ type Matches struct {
 	UpdatedBy     int64     `db:"updated_by" json:"updated_by"`
 }
 
+type CreateMatch struct {
+	MatchName     string  `db:"match_name" json:"match_name"`
+	PerMatchPrice float64 `db:"per_match_price" json:"per_match_price"`
+	CreatedBy     int64   `db:"created_by" json:"created_by"`
+}
+
+type UpdateMatch struct {
+	ID            int64     `db:"id" json:"id"`
+	MatchName     string    `db:"match_name" json:"match_name"`
+	PerMatchPrice float64   `db:"per_match_price" json:"per_match_price"`
+	UpdatedAt     time.Time `db:"updated_at" json:"updated_at"`
+	UpdatedBy     int64     `db:"updated_by" json:"updated_by"`
+}
+
 type Centuries struct {
 	ID             int64      `db:"id" json:"id"`
 	PricePerMinute float64    `db:"price_per_minute" json:"price_per_minute"`
