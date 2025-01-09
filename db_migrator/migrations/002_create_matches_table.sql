@@ -1,0 +1,9 @@
+ CREATE TABLE "matches" (
+    "id" BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    "match_name" VARCHAR(100) NOT NULL,
+    "per_match_price" NUMERIC(10, 2) NOT NULL,
+    "created_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    "updated_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    "created_by" BIGINT NOT NULL,
+    "updated_by" BIGINT NOT NULL
+);
